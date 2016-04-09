@@ -65,7 +65,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 183628, guid: cc3b7260ec7764811884aa88db174348, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
@@ -111,6 +111,8 @@ MonoBehaviour:
   matchName: default
   matchSize: 4
   discovery: {fileID: 11490398}
+  godPlayerPrefab: {fileID: 183628, guid: cc3b7260ec7764811884aa88db174348, type: 2}
+  hostIsHuman: 1
 --- !u!114 &11490398
 MonoBehaviour:
   m_ObjectHideFlags: 1
