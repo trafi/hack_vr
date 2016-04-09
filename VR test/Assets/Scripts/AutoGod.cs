@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.VR;
 
 public class AutoGod : MonoBehaviour {
 
@@ -8,8 +9,10 @@ public class AutoGod : MonoBehaviour {
 	public GameObject[] Objects;
 	public GameObject Thrower;
 	public float TimeBetweenThrows = 2;
+	public float TimeToAppear = 2;
 	public float ThrowForce = 300;
 	public GameObject Target;
+	public GameObject LookAtObject;
 
 	public float GroundDepth = 2.0f;
 	public float DeathDepth = -20.0f;
@@ -19,13 +22,13 @@ public class AutoGod : MonoBehaviour {
 	public float SinkSpeed = 0.8f;
 
 	private float timePassed;
+	private Vector3 nextObjectRealScale;
 	private GameObject nextObject;
 
 	private ArrayList unusedThrowableObjects = new ArrayList();
 	private ArrayList landingObjects = new ArrayList();
 	private ArrayList sinkingObjects = new ArrayList();
 
-	// Use this for initialization
 	void Start () {
 		timePassed = 0.0f;
 		TimeBetweenThrows = 1;
@@ -35,17 +38,22 @@ public class AutoGod : MonoBehaviour {
 			unusedThrowableObjects.Add(CreateRandomThrowable());
 		}
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		timePassed += Time.deltaTime;
-		if (timePassed > TimeBetweenThrows) {
-			if (nextObject == null) {
+		if (nextObject == null) {
+			if (timePassed > TimeBetweenThrows) {
 				TakeNextObject ();
-			} else {
-				ThrowNextObject ();
+				timePassed = 0;
 			}
-			timePassed = 0;
+		} else {
+			if (timePassed > TimeToAppear) {
+				ThrowNextObject ();
+				timePassed = 0;
+			} else {
+				var progress = timePassed / TimeToAppear;
+				nextObject.transform.localScale = nextObjectRealScale * progress;
+			}
 		}
 
 		for (var i = landingObjects.Count - 1; i >= 0; i--) {
@@ -87,6 +95,8 @@ public class AutoGod : MonoBehaviour {
 		nextObject.transform.position = Thrower.transform.position;
 		nextObject.GetComponent<Rigidbody> ().isKinematic = true;
 		nextObject.SetActive (true);
+		nextObjectRealScale = nextObject.transform.localScale;
+		nextObject.transform.localScale = Vector3.zero;
 	}
 
 	void ThrowNextObject() {
@@ -94,9 +104,19 @@ public class AutoGod : MonoBehaviour {
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		rb.angularVelocity = new Vector3 (Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f));
-		var direction = Target.transform.position - Thrower.transform.position;
-		direction.y = 0;
-		rb.AddForce (direction * ThrowForce);
+		if (LookAtObject != null) {
+			Quaternion headRotation = InputTracking.GetLocalRotation(VRNode.Head);
+			var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			if(moveDirection == Vector3.zero)
+			{
+				moveDirection = (headRotation * Vector3.forward);
+			}
+			rb.AddForce (moveDirection * ThrowForce * 300);
+		} else if (Target != null) {
+			var direction = Target.transform.position - Thrower.transform.position;
+			direction.y = 0;
+			rb.AddForce (direction * ThrowForce);
+		}
 
 		landingObjects.Add (nextObject);
 		nextObject = null;
