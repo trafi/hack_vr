@@ -107,7 +107,6 @@ public class AutoGod : MonoBehaviour {
 				var vel = rb.velocity;
 				rb.useGravity = false;
 				rb.isKinematic = true;
-				//landingObject.obj.GetComponent<Collider> ().isTrigger = false;
 				landingObject.obj.tag = "Untagged";
 
 				sinkingObjects.Add (new SinkingObject(vel, landingObject.obj));
@@ -180,7 +179,6 @@ public class AutoGod : MonoBehaviour {
 	GameObject CreateRandomThrowable() {
 		var index = Random.Range (0, Objects.Length);
 		var o = Objects[index];
-		//o.GetComponent<Collider> ().isTrigger = true;
 		o.tag = DeadlyTag;
 		return Instantiate (o);
 	}
