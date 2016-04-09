@@ -10,8 +10,8 @@ public class AutoGod : MonoBehaviour {
 	public float TimeBetweenThrows = 2;
 	public float ThrowForce = 300;
 	public GameObject Target;
-	public GameObject Ground;
 
+	public float GroundDepth = 2.0f;
 	public float DeathDepth = -20.0f;
 	public float HitGroundSlowdown = 0.2f;
 	public float MinimumVelocity = 0.1f;
@@ -50,7 +50,7 @@ public class AutoGod : MonoBehaviour {
 
 		for (var i = landingObjects.Count - 1; i >= 0; i--) {
 			var landingObject = (GameObject)landingObjects[i];
-			if (landingObject.transform.position.y < 0) {
+			if (landingObject.transform.position.y < GroundDepth) {
 				sinkingObjects.Add (landingObject);
 				var rb = landingObject.GetComponent<Rigidbody> ();
 				rb.useGravity = false;
