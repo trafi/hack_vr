@@ -9,8 +9,19 @@ public class MovementController : MonoBehaviour
     public float gravity = 20.0F;
     public float maxTurnRadius = 0.3f;
     private Vector3 moveDirection = Vector3.zero;
+
+	private NetworkCharacterBehaviour network;
+
+	void Start() {
+		network = GetComponent<NetworkCharacterBehaviour>();
+	}
+
     void Update()
-    {
+	{
+		if(null != network && !network.isLocalPlayer()) {
+			return;
+		}
+
         CharacterController controller = GetComponent<CharacterController>();
         Quaternion headRotation = InputTracking.GetLocalRotation(VRNode.Head);
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));

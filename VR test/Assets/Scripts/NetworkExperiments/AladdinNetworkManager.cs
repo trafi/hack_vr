@@ -24,7 +24,7 @@ public class AladdinNetworkManager : NetworkManager {
 	IEnumerator EstablishConnection() {
 		Debug.Log ("Establishing connection: Searching for host");
 		discovery.StartAsClient ();
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (1);
 		if (State.DISCONNECTED != state) {
 			yield break;
 		}
