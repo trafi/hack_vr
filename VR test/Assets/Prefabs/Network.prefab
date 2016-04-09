@@ -112,6 +112,8 @@ MonoBehaviour:
   matchSize: 4
   discovery: {fileID: 11490398}
   godPlayerPrefab: {fileID: 183628, guid: cc3b7260ec7764811884aa88db174348, type: 2}
+  spectatorPlayerPrefab: {fileID: 169392, guid: e76ea25f09c4345f880806b73925be20,
+    type: 2}
   hostIsHuman: 1
 --- !u!114 &11490398
 MonoBehaviour:
