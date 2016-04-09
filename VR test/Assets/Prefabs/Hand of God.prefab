@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 464598}
@@ -150,6 +150,8 @@ MonoBehaviour:
   DeadlyTag: Deadly
   Objects:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Thrower: {fileID: 157594}
   TimeBetweenThrows: 2
   TimeToAppear: 0.7
@@ -158,7 +160,7 @@ MonoBehaviour:
   ThrowableObjectSize: 1
   Target: {fileID: 137374, guid: baf8a0209b6d2424a9788d79db0c0620, type: 2}
   Camera: {fileID: 177718}
-  GroundDepth: -2
+  GroundDepth: -4
   DeathDepth: -20
   HitGroundSlowdown: 0.2
   MinimumVelocity: 0.1

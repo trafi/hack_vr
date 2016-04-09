@@ -14,7 +14,7 @@ GameObject:
   - 65: {fileID: 6523320}
   m_Layer: 0
   m_Name: Sand_Pillar
-  m_TagString: Untagged
+  m_TagString: Deadly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123082}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.273422, y: 55.7, z: 21.9}
-  m_LocalScale: {x: 1.1872706, y: 1.1872706, z: 1.1872706}
+  m_LocalRotation: {x: 0.000000021855694, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.8, y: -1.2, z: 47.830254}
+  m_LocalScale: {x: 1.7378272, y: 1.7378265, z: 1.7378265}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
