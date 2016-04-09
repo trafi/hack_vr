@@ -12,6 +12,16 @@ class LandingObjectTimeout {
 	}
 }
 
+class SinkingObject {
+	public Vector3 vel;
+	public GameObject obj;
+
+	public SinkingObject(Vector3 vel, GameObject obj) {
+		this.vel = vel;
+		this.obj = obj;
+	}
+}
+
 public class AutoGod : MonoBehaviour {
 
 	public string DeadlyTag = "Deadly";
@@ -93,24 +103,26 @@ public class AutoGod : MonoBehaviour {
 			landingObject.livetime += Time.deltaTime;
 
 			if (landingObject.livetime >= TimeForBounce) {
-				sinkingObjects.Add (landingObject.obj);
 				var rb = landingObject.obj.GetComponent<Rigidbody> ();
+				var vel = rb.velocity;
 				rb.useGravity = false;
 				rb.isKinematic = true;
-				rb.velocity.Normalize ();
 				//landingObject.obj.GetComponent<Collider> ().isTrigger = false;
 				landingObject.obj.tag = "Untagged";
+
+				sinkingObjects.Add (new SinkingObject(vel, landingObject.obj));
 				landingObjects.RemoveAt (i);
 			}
 		}
 
 		for (var i = sinkingObjects.Count - 1; i >= 0; i--) {
-			var sinkingObject = (GameObject)sinkingObjects[i];
-			if (sinkingObject.transform.position.y < DeathDepth) {
-				ReturnThrowableToQueue (sinkingObject);
+			var sinkingObject = (SinkingObject)sinkingObjects[i];
+			if (sinkingObject.obj.transform.position.y < DeathDepth) {
+				ReturnThrowableToQueue (sinkingObject.obj);
 				sinkingObjects.RemoveAt (i);
 			} else {
-				sinkingObject.transform.position -= new Vector3 (0, SinkSpeed * Time.deltaTime, 0);
+				sinkingObject.vel = new Vector3 (sinkingObject.vel.x * 0.97f, sinkingObject.vel.y - SinkSpeed, sinkingObject.vel.z * 0.97f);
+				sinkingObject.obj.transform.position += sinkingObject.vel * Time.deltaTime;
 			}
 		}
 	}

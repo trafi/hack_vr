@@ -149,20 +149,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeadlyTag: Deadly
   Objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 137210, guid: 1969a417ad5f8f145a9482c528cd00a3, type: 2}
   Thrower: {fileID: 157594}
   TimeBetweenThrows: 2
-  TimeToAppear: 0.7
-  TimeToGetBig: 0.6
+  TimeToAppear: 2
+  TimeToGetBig: 0.7
   ThrowForce: 15
-  ThrowableObjectSize: 1
+  ThrowableObjectSize: 0.5
   Target: {fileID: 137374, guid: baf8a0209b6d2424a9788d79db0c0620, type: 2}
   Camera: {fileID: 177718}
   TimeForBounce: 10
   DeathDepth: -20
-  SinkSpeed: 1
+  SinkSpeed: 0.5
 --- !u!124 &12440338
 Behaviour:
   m_ObjectHideFlags: 1
