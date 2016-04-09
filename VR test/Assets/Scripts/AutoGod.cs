@@ -50,12 +50,17 @@ public class AutoGod : MonoBehaviour {
 
 		for (var i = landingObjects.Count - 1; i >= 0; i--) {
 			var landingObject = (GameObject)landingObjects[i];
-			if (landingObject.transform.position.y < GroundDepth) {
+			var objSize = landingObject.GetComponent<Renderer> ().bounds.size.magnitude;
+
+			if (landingObject.transform.position.y < GroundDepth + objSize / 4.0f) {
 				sinkingObjects.Add (landingObject);
 				var rb = landingObject.GetComponent<Rigidbody> ();
 				rb.useGravity = false;
+				rb.isKinematic = true;
 				rb.velocity.Normalize ();
 				rb.velocity *= HitGroundSlowdown;
+				landingObject.GetComponent<Collider> ().isTrigger = false;
+				landingObject.tag = "Untagged";
 
 				landingObjects.RemoveAt (i);
 			}
@@ -85,10 +90,13 @@ public class AutoGod : MonoBehaviour {
 	}
 
 	void ThrowNextObject() {
-		nextObject.GetComponent<Rigidbody> ().isKinematic = false;
+		var rb = nextObject.GetComponent<Rigidbody> ();
+		rb.useGravity = true;
+		rb.isKinematic = false;
+		rb.angularVelocity = new Vector3 (Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f));
 		var direction = Target.transform.position - Thrower.transform.position;
 		direction.y = 0;
-		nextObject.GetComponent<Rigidbody>().AddForce (direction * ThrowForce);
+		rb.AddForce (direction * ThrowForce);
 
 		landingObjects.Add (nextObject);
 		nextObject = null;
@@ -106,6 +114,8 @@ public class AutoGod : MonoBehaviour {
 	GameObject CreateRandomThrowable() {
 		var index = Random.Range (0, Objects.Length);
 		var o = Objects[index];
+		o.GetComponent<Collider> ().isTrigger = true;
+		o.tag = DeadlyTag;
 		return Instantiate (o);
 	}
 

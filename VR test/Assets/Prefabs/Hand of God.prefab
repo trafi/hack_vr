@@ -46,13 +46,13 @@ MonoBehaviour:
   - {fileID: 0}
   Thrower: {fileID: 157594}
   TimeBetweenThrows: 2
-  ThrowForce: 8
+  ThrowForce: 16
   Target: {fileID: 0}
-  GroundDepth: 5
+  GroundDepth: -2
   DeathDepth: -20
   HitGroundSlowdown: 0.2
   MinimumVelocity: 0.1
-  BeforeSinkSlowdown: 0.8
+  BeforeSinkSlowdown: -0.15
   SinkSpeed: 0.8
 --- !u!1001 &100100000
 Prefab:
