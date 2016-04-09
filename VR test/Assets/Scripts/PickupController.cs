@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PickupController : MonoBehaviour {
 
+    public GameObject[] pickupIndicators = new GameObject[10];
+    int collectableCounter = 0;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +22,8 @@ public class PickupController : MonoBehaviour {
         if (other.gameObject.tag == "Pickup")
         {
             Destroy(other.gameObject);
+            pickupIndicators[collectableCounter].GetComponent<Renderer>().enabled = true;
+            collectableCounter++;
         }
     }
 }
