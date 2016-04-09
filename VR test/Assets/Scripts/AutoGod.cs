@@ -14,7 +14,7 @@ public class AutoGod : MonoBehaviour {
 	public float ThrowForce = 300;
 	public float ThrowableObjectSize = 3; 
 	public GameObject Target;
-	public GameObject LookAtObject;
+	public GameObject Camera;
 
 	public float GroundDepth = 2.0f;
 	public float DeathDepth = -20.0f;
@@ -125,7 +125,7 @@ public class AutoGod : MonoBehaviour {
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		rb.angularVelocity = new Vector3 (Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f));
-		if (LookAtObject != null) {
+		if (Camera != null) {
 			Quaternion headRotation = InputTracking.GetLocalRotation(VRNode.Head);
 			var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			if(moveDirection == Vector3.zero)

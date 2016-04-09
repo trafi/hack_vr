@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 173706226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.790001, z: 3.3}
+  m_LocalPosition: {x: 0, y: 2.790001, z: 3.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190009187}
@@ -346,15 +346,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 446810, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.644
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 446810, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.455
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 446810, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.95
+      value: 4.124
       objectReference: {fileID: 0}
     - target: {fileID: 446810, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
       propertyPath: m_LocalRotation.x
@@ -396,6 +396,22 @@ Prefab:
       propertyPath: LookAtObject
       value: 
       objectReference: {fileID: 173706226}
+    - target: {fileID: 11417546, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
+      propertyPath: ThrowableObjectSize
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417546, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
+      propertyPath: TimeToAppear
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417546, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
+      propertyPath: TimeBetweenThrows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417546, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
+      propertyPath: TimeToGetBig
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
   m_IsPrefabParent: 0
