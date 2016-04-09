@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
+    public float maxTurnRadius = 0.3f;
     private Vector3 moveDirection = Vector3.zero;
     void Update()
     {
@@ -17,8 +18,10 @@ public class MovementController : MonoBehaviour
         {
             moveDirection = (headRotation * Vector3.forward);
             moveDirection.y = 0;
+            moveDirection.z = 1;
         }
-        Debug.Log(transform.rotation);
+        moveDirection.x = Mathf.Clamp(moveDirection.x, -maxTurnRadius, maxTurnRadius);
+        Debug.Log(moveDirection);
         transform.Rotate(0, moveDirection.x, 0);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
