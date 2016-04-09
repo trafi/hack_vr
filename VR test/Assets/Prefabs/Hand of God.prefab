@@ -156,16 +156,13 @@ MonoBehaviour:
   TimeBetweenThrows: 2
   TimeToAppear: 0.7
   TimeToGetBig: 0.6
-  ThrowForce: 20
+  ThrowForce: 15
   ThrowableObjectSize: 1
   Target: {fileID: 137374, guid: baf8a0209b6d2424a9788d79db0c0620, type: 2}
   Camera: {fileID: 177718}
-  GroundDepth: -4
+  TimeForBounce: 10
   DeathDepth: -20
-  HitGroundSlowdown: 0.2
-  MinimumVelocity: 0.1
-  BeforeSinkSlowdown: -0.15
-  SinkSpeed: 0.8
+  SinkSpeed: 1
 --- !u!124 &12440338
 Behaviour:
   m_ObjectHideFlags: 1

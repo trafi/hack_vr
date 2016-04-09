@@ -2,6 +2,16 @@
 using System.Collections;
 using UnityEngine.VR;
 
+class LandingObjectTimeout {
+	public float livetime;
+	public GameObject obj;
+
+	public LandingObjectTimeout(float livetime, GameObject obj) {
+		this.livetime = livetime;
+		this.obj = obj;
+	}
+}
+
 public class AutoGod : MonoBehaviour {
 
 	public string DeadlyTag = "Deadly";
@@ -16,11 +26,8 @@ public class AutoGod : MonoBehaviour {
 	public GameObject Target;
 	public GameObject Camera;
 
-	public float GroundDepth = 2.0f;
+	public float TimeForBounce = 10.0f;
 	public float DeathDepth = -20.0f;
-	public float HitGroundSlowdown = 0.2f;
-	public float MinimumVelocity = 0.1f;
-	public float BeforeSinkSlowdown = 0.8f;
 	public float SinkSpeed = 0.8f;
 
 	private float throwerTimePassed;
@@ -82,19 +89,17 @@ public class AutoGod : MonoBehaviour {
 		}
 
 		for (var i = landingObjects.Count - 1; i >= 0; i--) {
-			var landingObject = (GameObject)landingObjects[i];
-			var objSize = landingObject.GetComponent<Renderer> ().bounds.size.magnitude;
+			var landingObject = (LandingObjectTimeout)landingObjects[i];
+			landingObject.livetime += Time.deltaTime;
 
-			if (landingObject.transform.position.y < GroundDepth + objSize / 4.0f) {
-				sinkingObjects.Add (landingObject);
-				var rb = landingObject.GetComponent<Rigidbody> ();
+			if (landingObject.livetime >= TimeForBounce) {
+				sinkingObjects.Add (landingObject.obj);
+				var rb = landingObject.obj.GetComponent<Rigidbody> ();
 				rb.useGravity = false;
 				rb.isKinematic = true;
 				rb.velocity.Normalize ();
-				rb.velocity *= HitGroundSlowdown;
-				landingObject.GetComponent<Collider> ().isTrigger = false;
-				landingObject.tag = "Untagged";
-
+				//landingObject.obj.GetComponent<Collider> ().isTrigger = false;
+				landingObject.obj.tag = "Untagged";
 				landingObjects.RemoveAt (i);
 			}
 		}
@@ -105,12 +110,7 @@ public class AutoGod : MonoBehaviour {
 				ReturnThrowableToQueue (sinkingObject);
 				sinkingObjects.RemoveAt (i);
 			} else {
-				var rb = sinkingObject.GetComponent<Rigidbody> ();
-				if (rb.velocity.magnitude < MinimumVelocity) {
-					sinkingObject.transform.position -= new Vector3 (0, SinkSpeed * Time.deltaTime, 0);
-				} else {
-					rb.velocity *= BeforeSinkSlowdown * Time.deltaTime;
-				}
+				sinkingObject.transform.position -= new Vector3 (0, SinkSpeed * Time.deltaTime, 0);
 			}
 		}
 	}
@@ -145,8 +145,8 @@ public class AutoGod : MonoBehaviour {
 			direction.y = 0;
 			rb.AddForce (direction * ThrowForce);
 		}
-
-		landingObjects.Add (nextObject);
+			
+		landingObjects.Add (new LandingObjectTimeout (0, nextObject));
 
 		thrownObject = nextObject;
 		thrownObjectSmallScale = nextObjectSmallScale;
@@ -168,7 +168,7 @@ public class AutoGod : MonoBehaviour {
 	GameObject CreateRandomThrowable() {
 		var index = Random.Range (0, Objects.Length);
 		var o = Objects[index];
-		o.GetComponent<Collider> ().isTrigger = true;
+		//o.GetComponent<Collider> ().isTrigger = true;
 		o.tag = DeadlyTag;
 		return Instantiate (o);
 	}
