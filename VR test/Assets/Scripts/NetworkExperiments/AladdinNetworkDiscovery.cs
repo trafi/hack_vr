@@ -4,11 +4,16 @@ using System.Collections;
 
 public class AladdinNetworkDiscovery : NetworkDiscovery
 {
+	private AladdinNetworkManager networkManager;
+
+	void Start () {
+		networkManager = (AladdinNetworkManager)NetworkManager.singleton;
+	}
+
 	public override void OnReceivedBroadcast (string fromAddress, string data)
 	{
 		Debug.Log ("OnReceivedBroadcast fromAddress: " + fromAddress + " data: " + data);
-		NetworkManager.singleton.networkAddress = fromAddress;
-		NetworkManager.singleton.StartClient();
+		networkManager.OnReceivedBroadcast (fromAddress);
 	}
 
 }
