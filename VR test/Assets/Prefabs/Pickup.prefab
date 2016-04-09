@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2367724}
   m_Layer: 0
   m_Name: Pickup
-  m_TagString: Deadly
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
