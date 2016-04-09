@@ -16,6 +16,7 @@ public class MovementController : MonoBehaviour
         if(moveDirection == Vector3.zero)
         {
             moveDirection = (headRotation * Vector3.forward);
+            moveDirection.y = 0;
         }
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
