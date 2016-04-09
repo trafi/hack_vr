@@ -38,7 +38,10 @@ public class AutoGod : MonoBehaviour {
 	private ArrayList landingObjects = new ArrayList();
 	private ArrayList sinkingObjects = new ArrayList();
 
+	private NetworkCharacterBehaviour network;
+
 	void Start () {
+		network = GetComponent<NetworkCharacterBehaviour>();
 		throwerTimePassed = 0.0f;
 		TakeNextObject ();
 
@@ -48,6 +51,10 @@ public class AutoGod : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		if(null != network && !network.isLocalPlayer()) {
+			return;
+		}
+
 		throwerTimePassed += Time.deltaTime;
 		if (nextObject == null) {
 			if (throwerTimePassed > TimeBetweenThrows) {
