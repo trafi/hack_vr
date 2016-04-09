@@ -16,7 +16,7 @@ public class MovementController : MonoBehaviour
 		network = GetComponent<NetworkCharacterBehaviour>();
 	}
 
-    void Update()
+    void FixedUpdate()
 	{
 		if(null != network && !network.isLocalPlayer()) {
 			return;

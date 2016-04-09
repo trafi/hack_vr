@@ -6,12 +6,17 @@ public class AladdinNetworkManager : NetworkManager {
 
 	public NetworkDiscovery discovery;
 
+	public GameObject godPlayerPrefab;
+
 	private enum State {
 		DISCONNECTED,
 		HOST,
 		CLIENT
 	}
 	private State state;
+
+	public bool hostIsHuman = true;
+	private int numConnectedPlayers = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +29,7 @@ public class AladdinNetworkManager : NetworkManager {
 	IEnumerator EstablishConnection() {
 		Debug.Log ("Establishing connection: Searching for host");
 		discovery.StartAsClient ();
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2);
 		if (State.DISCONNECTED != state) {
 			yield break;
 		}
@@ -80,25 +85,38 @@ public class AladdinNetworkManager : NetworkManager {
 	{
 		NetworkServer.SetClientReady(conn);
 	}
-
+	*/
 	// called when a new player is added for a client
-	public virtual void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
 	{
-		var player = (GameObject)GameObject.Instantiate(playerPrefab, playerSpawnPos, Quaternion.identity);
+		GameObject player = null;
+		if ((hostIsHuman && 0 == numConnectedPlayers) || (!hostIsHuman && 1 == numConnectedPlayers)) {
+			player = GameObject.Instantiate (playerPrefab, playerPrefab.transform.position, Quaternion.identity) as GameObject;
+			Debug.Log ("Spawning human player");
+		} else if ((!hostIsHuman && 0 == numConnectedPlayers) || (hostIsHuman && 1 == numConnectedPlayers)) {
+			player = GameObject.Instantiate (godPlayerPrefab, godPlayerPrefab.transform.position, Quaternion.identity) as GameObject;
+			Debug.Log ("Spawning god player");
+		} else {
+			Vector3 defaultSpawnPosition = new Vector3 ();
+			Transform startTransform = GetStartPosition ();
+			if (null != startTransform) {
+				defaultSpawnPosition = startTransform.position;
+			}
+			// TODO
+			// all other players become spectators
+			Debug.Log ("Spawning spectator");
+		}
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+		++numConnectedPlayers;
 	}
 
 	// called when a player is removed for a client
-	public virtual void OnServerRemovePlayer(NetworkConnection conn, short playerControllerId)
+	public override void OnServerRemovePlayer(NetworkConnection conn, PlayerController player)
 	{
-		PlayerController player;
-		if (conn.GetPlayer(playerControllerId, out player))
-		{
-			if (player.NetworkIdentity != null && player.NetworkIdentity.gameObject != null)
-				NetworkServer.Destroy(player.NetworkIdentity.gameObject);
-		}
+		base.OnServerRemovePlayer(conn, player);
+		--numConnectedPlayers;
 	}
-
+	/*
 	// called when a network error occurs
 	public virtual void OnServerError(NetworkConnection conn, int errorCode);
 	*/
