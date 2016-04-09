@@ -17,7 +17,7 @@ public class MovementController : MonoBehaviour
         if(moveDirection == Vector3.zero)
         {
             moveDirection = (headRotation * Vector3.forward);
-            moveDirection.y = 0;
+            moveDirection.y = -1;
             moveDirection.z = 1;
         }
         moveDirection.x = Mathf.Clamp(moveDirection.x, -maxTurnRadius, maxTurnRadius);
