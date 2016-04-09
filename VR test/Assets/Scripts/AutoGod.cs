@@ -10,7 +10,9 @@ public class AutoGod : MonoBehaviour {
 	public GameObject Thrower;
 	public float TimeBetweenThrows = 2;
 	public float TimeToAppear = 2;
+	public float TimeToGetBig = 2;
 	public float ThrowForce = 300;
+	public float ThrowableObjectSize = 3; 
 	public GameObject Target;
 	public GameObject LookAtObject;
 
@@ -21,17 +23,23 @@ public class AutoGod : MonoBehaviour {
 	public float BeforeSinkSlowdown = 0.8f;
 	public float SinkSpeed = 0.8f;
 
-	private float timePassed;
+	private float throwerTimePassed;
+
+	private Vector3 nextObjectSmallScale;
 	private Vector3 nextObjectRealScale;
 	private GameObject nextObject;
+
+	private float thrownTimePassed;
+	private Vector3 thrownObjectSmallScale;
+	private Vector3 thrownObjectRealScale;
+	private GameObject thrownObject;
 
 	private ArrayList unusedThrowableObjects = new ArrayList();
 	private ArrayList landingObjects = new ArrayList();
 	private ArrayList sinkingObjects = new ArrayList();
 
 	void Start () {
-		timePassed = 0.0f;
-		TimeBetweenThrows = 1;
+		throwerTimePassed = 0.0f;
 		TakeNextObject ();
 
 		for (var i = 0; i < 30; i++) {
@@ -40,19 +48,29 @@ public class AutoGod : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		timePassed += Time.deltaTime;
+		throwerTimePassed += Time.deltaTime;
 		if (nextObject == null) {
-			if (timePassed > TimeBetweenThrows) {
+			if (throwerTimePassed > TimeBetweenThrows) {
 				TakeNextObject ();
-				timePassed = 0;
+				throwerTimePassed = 0;
 			}
 		} else {
-			if (timePassed > TimeToAppear) {
+			if (throwerTimePassed > TimeToAppear) {
 				ThrowNextObject ();
-				timePassed = 0;
+				throwerTimePassed = 0;
 			} else {
-				var progress = timePassed / TimeToAppear;
-				nextObject.transform.localScale = nextObjectRealScale * progress;
+				var progress = throwerTimePassed / TimeToAppear;
+				nextObject.transform.localScale = nextObjectSmallScale * progress;
+			}
+		}
+
+		thrownTimePassed += Time.deltaTime;
+		if (thrownObject != null) {
+			if (thrownTimePassed < TimeToGetBig) {
+				var progress = thrownTimePassed / TimeToGetBig;
+				thrownObject.transform.localScale = thrownObjectSmallScale + (thrownObjectRealScale - thrownObjectSmallScale) * progress;
+			} else {
+				thrownObject = null;
 			}
 		}
 
@@ -96,6 +114,9 @@ public class AutoGod : MonoBehaviour {
 		nextObject.GetComponent<Rigidbody> ().isKinematic = true;
 		nextObject.SetActive (true);
 		nextObjectRealScale = nextObject.transform.localScale;
+		var size = nextObject.GetComponent<Renderer> ().bounds.size.magnitude;
+		var smallObjScale = ThrowableObjectSize / (size > 0 ? size : 1);
+		nextObjectSmallScale = nextObject.transform.localScale * smallObjScale;
 		nextObject.transform.localScale = Vector3.zero;
 	}
 
@@ -119,6 +140,12 @@ public class AutoGod : MonoBehaviour {
 		}
 
 		landingObjects.Add (nextObject);
+
+		thrownObject = nextObject;
+		thrownObjectSmallScale = nextObjectSmallScale;
+		thrownObjectRealScale = nextObjectRealScale;
+		thrownTimePassed = 0;
+
 		nextObject = null;
 	}
 
