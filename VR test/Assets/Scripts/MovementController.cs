@@ -9,11 +9,13 @@ public class MovementController : MonoBehaviour
     public float gravity = 20.0F;
     public float maxTurnRadius = 0.3f;
     private Vector3 moveDirection = Vector3.zero;
+	CharacterController character;
 
 	private NetworkCharacterBehaviour network;
 
 	void Start() {
 		network = GetComponent<NetworkCharacterBehaviour>();
+		character = GetComponent<CharacterController> ();
 	}
 
     void FixedUpdate()
@@ -21,8 +23,7 @@ public class MovementController : MonoBehaviour
 		if(null != network && !network.isLocalPlayer()) {
 			return;
 		}
-
-        CharacterController controller = GetComponent<CharacterController>();
+			
         Quaternion headRotation = InputTracking.GetLocalRotation(VRNode.Head);
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if(moveDirection == Vector3.zero)
@@ -38,6 +39,6 @@ public class MovementController : MonoBehaviour
         if (Input.GetButton("Jump"))
             moveDirection.y = jumpSpeed;
         moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+		character.Move(moveDirection * Time.deltaTime);
     }
 }

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &452018
 Transform:
   m_ObjectHideFlags: 1
@@ -39,7 +39,7 @@ MeshRenderer:
   m_GameObject: {fileID: 117802}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: a2f53b655b50b2441ad864570ad54924, type: 2}
   m_SubsetIndices: 
