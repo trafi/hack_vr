@@ -7,6 +7,7 @@ public class AladdinNetworkManager : NetworkManager {
 	public NetworkDiscovery discovery;
 
 	public GameObject godPlayerPrefab;
+	public GameObject spectatorPlayerPrefab;
 
 	private enum State {
 		DISCONNECTED,
@@ -97,12 +98,7 @@ public class AladdinNetworkManager : NetworkManager {
 			player = GameObject.Instantiate (godPlayerPrefab, godPlayerPrefab.transform.position, Quaternion.identity) as GameObject;
 			Debug.Log ("Spawning god player");
 		} else {
-			Vector3 defaultSpawnPosition = new Vector3 ();
-			Transform startTransform = GetStartPosition ();
-			if (null != startTransform) {
-				defaultSpawnPosition = startTransform.position;
-			}
-			// TODO
+			player = GameObject.Instantiate (spectatorPlayerPrefab, spectatorPlayerPrefab.transform.position, Quaternion.identity) as GameObject;
 			// all other players become spectators
 			Debug.Log ("Spawning spectator");
 		}
