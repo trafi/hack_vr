@@ -18,6 +18,8 @@ public class MovementController : MonoBehaviour
             moveDirection = (headRotation * Vector3.forward);
             moveDirection.y = 0;
         }
+        Debug.Log(transform.rotation);
+        transform.Rotate(0, moveDirection.x, 0);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
         if (Input.GetButton("Jump"))
