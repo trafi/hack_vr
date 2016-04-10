@@ -128,6 +128,14 @@ Prefab:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 402716, guid: f08a2f68ee1d149949d94ff7873872ef, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 402716, guid: f08a2f68ee1d149949d94ff7873872ef, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 700
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f08a2f68ee1d149949d94ff7873872ef, type: 2}
   m_IsPrefabParent: 0
@@ -563,11 +571,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 2}
       propertyPath: m_LocalScale.x
-      value: 700
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 2}
       propertyPath: m_LocalScale.z
-      value: 700
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 2}
       propertyPath: m_ReflectionProbeUsage
