@@ -18,7 +18,7 @@ public class MovementController : MonoBehaviour
 		character = GetComponent<CharacterController> ();
 	}
 
-    void FixedUpdate()
+    void Update()
 	{
 		if(null != network && !network.isLocalPlayer()) {
 			return;
