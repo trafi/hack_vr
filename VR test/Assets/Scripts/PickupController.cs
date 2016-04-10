@@ -25,5 +25,9 @@ public class PickupController : MonoBehaviour {
             pickupIndicators[collectableCounter].GetComponent<Renderer>().enabled = true;
             collectableCounter++;
         }
+        if(other.gameObject.tag == "Bounds")
+        {
+            transform.position = new Vector3(0, 0, 0);
+        }
     }
 }
