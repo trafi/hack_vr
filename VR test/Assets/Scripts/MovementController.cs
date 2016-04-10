@@ -20,10 +20,10 @@ public class MovementController : MonoBehaviour
 
     void Update()
 	{
-		if(null != network && !network.isLocalPlayer()) {
+		if(null != network && !network.isLocalPlayer) {
 			return;
 		}
-			
+
         Quaternion headRotation = InputTracking.GetLocalRotation(VRNode.Head);
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if(moveDirection == Vector3.zero)
