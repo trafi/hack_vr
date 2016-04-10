@@ -725,9 +725,9 @@ Prefab:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11452442, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
-      propertyPath: m_PlayerPrefab
-      value: 
-      objectReference: {fileID: 137374, guid: baf8a0209b6d2424a9788d79db0c0620, type: 2}
+      propertyPath: hostIsHuman
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
   m_IsPrefabParent: 0
