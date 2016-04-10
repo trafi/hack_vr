@@ -858,7 +858,7 @@ MonoBehaviour:
   TimeToAppear: 2
   TimeToGetBig: 5
   ThrowForce: 15
-  ThrowableObjectSize: 0.5
+  ThrowableObjectSize: 0.2
   Target: {fileID: 137374, guid: baf8a0209b6d2424a9788d79db0c0620, type: 2}
   TimeForBounce: 15
   DeathDepth: -20

@@ -41,6 +41,8 @@ public class AutoGod : NetworkBehaviour {
 	public float DeathDepth = -20.0f;
 	public float SinkSpeed = 0.8f;
 
+	private int nextIndex = 0;
+
 	private float throwerTimePassed;
 
 	private Vector3 nextObjectSmallScale;
@@ -123,7 +125,11 @@ public class AutoGod : NetworkBehaviour {
 	}
 
 	void TakeNextObject() {
-		var index = Random.Range (0, Objects.Length);
+		var index = nextIndex;
+		nextIndex += 1;
+		if (nextIndex >= Objects.Length) {
+			nextIndex = 0;
+		}
 		var o = Objects[index];
 		o.tag = DeadlyTag;
 		nextObject = Instantiate (o);
