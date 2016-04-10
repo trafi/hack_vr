@@ -126,7 +126,7 @@ MonoBehaviour:
   godPlayerPrefab: {fileID: 157594, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
   spectatorPlayerPrefab: {fileID: 169392, guid: e76ea25f09c4345f880806b73925be20,
     type: 2}
-  hostIsHuman: 0
+  hostIsHuman: 1
 --- !u!114 &11490398
 MonoBehaviour:
   m_ObjectHideFlags: 1
