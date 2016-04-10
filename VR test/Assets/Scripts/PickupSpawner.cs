@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class PickupSpawner : MonoBehaviour {
+public class PickupSpawner : NetworkBehaviour
+{
 
     public GameObject pickup;
     GameObject spawnedPickup;
@@ -15,8 +17,6 @@ public class PickupSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Debug.Log("Pickup spawner start");
-        lastPos = getPos();
-        spawnedPickup = (GameObject)Instantiate(pickup, lastPos, Quaternion.Euler(270, 0, 0));
 	}
 	
 	// Update is called once per frame
@@ -31,6 +31,7 @@ public class PickupSpawner : MonoBehaviour {
             Debug.Log("Distance " + Vector3.Distance(newPos, lastPos));
             lastPos = newPos;
             spawnedPickup = (GameObject)Instantiate(pickup, newPos, Quaternion.Euler(270, 0, 0));
+            NetworkServer.Spawn(spawnedPickup);
         }
         //Instantiate(pickup, getPos(), new Quaternion());
     }

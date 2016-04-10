@@ -518,6 +518,42 @@ Transform:
   - {fileID: 1762091295}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1 &1287129432 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 181470, guid: f147119f749d77845bcc07892446adfd, type: 2}
+  m_PrefabInternal: {fileID: 1024544717}
+--- !u!114 &1287129433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287129432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 241
+    i1: 71
+    i2: 17
+    i3: 159
+    i4: 116
+    i5: 157
+    i6: 119
+    i7: 132
+    i8: 91
+    i9: 204
+    i10: 7
+    i11: 137
+    i12: 36
+    i13: 70
+    i14: 173
+    i15: 253
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &1320990590
 Prefab:
   m_ObjectHideFlags: 0

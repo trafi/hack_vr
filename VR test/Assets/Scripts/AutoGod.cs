@@ -63,7 +63,7 @@ public class AutoGod : NetworkBehaviour {
 	}
 
 	void Update () {
-		Debug.Log ("Update local " + isLocalPlayer + " server " + isServer);
+		//Debug.Log ("Update local " + isLocalPlayer + " server " + isServer);
 
 		Thrower = GameObject.FindGameObjectWithTag (GodTag);
 		if (null == Thrower) {
