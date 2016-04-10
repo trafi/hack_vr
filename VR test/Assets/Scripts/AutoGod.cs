@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.VR;
 
@@ -22,7 +23,7 @@ class SinkingObject {
 	}
 }
 
-public class AutoGod : MonoBehaviour {
+public class AutoGod : NetworkBehaviour {
 
 	public string DeadlyTag = "Deadly";
 
@@ -54,21 +55,13 @@ public class AutoGod : MonoBehaviour {
 	private ArrayList landingObjects = new ArrayList();
 	private ArrayList sinkingObjects = new ArrayList();
 
-	private NetworkCharacterBehaviour network;
-
 	void Start () {
-		network = GetComponent<NetworkCharacterBehaviour>();
-		if (null != network && !network.isLocalPlayer) {
-			return;
-		}
 		throwerTimePassed = 0.0f;
 		TakeNextObject ();
 	}
 
-	void FixedUpdate () {
-		if(null != network && !network.isLocalPlayer) {
-			return;
-		}
+	void Update () {
+		Debug.Log ("Update local " + isLocalPlayer + " server " + isServer);
 
 		throwerTimePassed += Time.deltaTime;
 		if (nextObject == null) {
@@ -129,6 +122,7 @@ public class AutoGod : MonoBehaviour {
 		var o = Objects[index];
 		o.tag = DeadlyTag;
 		nextObject = Instantiate (o);
+		NetworkServer.Spawn (nextObject);
 
 		nextObject.transform.position = Thrower.transform.position;
 		nextObject.GetComponent<Rigidbody> ().isKinematic = true;
