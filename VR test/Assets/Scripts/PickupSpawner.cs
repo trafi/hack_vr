@@ -28,7 +28,7 @@ public class PickupSpawner : NetworkBehaviour
             {
                 newPos = getPos();
             }
-            Debug.Log("Distance " + Vector3.Distance(newPos, lastPos));
+//            Debug.Log("Distance " + Vector3.Distance(newPos, lastPos));
             lastPos = newPos;
             spawnedPickup = (GameObject)Instantiate(pickup, newPos, Quaternion.Euler(270, 0, 0));
             NetworkServer.Spawn(spawnedPickup);
