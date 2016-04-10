@@ -660,6 +660,8 @@ MonoBehaviour:
   Thrower: {fileID: 825018974}
   Objects:
   - {fileID: 123082, guid: 763267925726644eb887426197f1235b, type: 2}
+  - {fileID: 117802, guid: df69fb749278c46bd9ea0611a344e220, type: 2}
+  - {fileID: 156976, guid: 96173b0280ed842a4b346a6f3e9c3917, type: 2}
   TimeBetweenThrows: 3
   TimeToAppear: 2
   TimeToGetBig: 5
@@ -723,10 +725,6 @@ Prefab:
     - target: {fileID: 447440, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452442, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
-      propertyPath: hostIsHuman
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
