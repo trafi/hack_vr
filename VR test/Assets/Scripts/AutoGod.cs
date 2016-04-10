@@ -51,7 +51,6 @@ public class AutoGod : MonoBehaviour {
 	private Vector3 thrownObjectRealScale;
 	private GameObject thrownObject;
 
-	private ArrayList unusedThrowableObjects = new ArrayList();
 	private ArrayList landingObjects = new ArrayList();
 	private ArrayList sinkingObjects = new ArrayList();
 
@@ -64,10 +63,6 @@ public class AutoGod : MonoBehaviour {
 		}
 		throwerTimePassed = 0.0f;
 		TakeNextObject ();
-
-		for (var i = 0; i < 30; i++) {
-			unusedThrowableObjects.Add(CreateRandomThrowable());
-		}
 	}
 
 	void FixedUpdate () {
@@ -130,7 +125,11 @@ public class AutoGod : MonoBehaviour {
 	}
 
 	void TakeNextObject() {
-		nextObject = GetThrowableObject();
+		var index = Random.Range (0, Objects.Length);
+		var o = Objects[index];
+		o.tag = DeadlyTag;
+		nextObject = Instantiate (o);
+
 		nextObject.transform.position = Thrower.transform.position;
 		nextObject.GetComponent<Rigidbody> ().isKinematic = true;
 		nextObject.SetActive (true);
@@ -170,28 +169,7 @@ public class AutoGod : MonoBehaviour {
 		nextObject = null;
 	}
 
-	GameObject GetThrowableObject() {
-		if (unusedThrowableObjects.Count > 0) {
-			var obj = unusedThrowableObjects [0];
-			unusedThrowableObjects.RemoveAt (0);
-			return (GameObject)obj;
-		}
-		return CreateRandomThrowable ();
-	}
-
-	GameObject CreateRandomThrowable() {
-		var index = Random.Range (0, Objects.Length);
-		var o = Objects[index];
-		o.tag = DeadlyTag;
-		return Instantiate (o);
-	}
-
 	void ReturnThrowableToQueue(GameObject throwable) {
-		throwable.SetActive (false);
-		var rb = throwable.GetComponent<Rigidbody> ();
-		rb.isKinematic = false;
-		rb.useGravity = true;
-		rb.velocity = Vector3.zero;
-		unusedThrowableObjects.Add (throwable);
+		Destroy (throwable);
 	}
 }
