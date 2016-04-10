@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 414696}
   - 33: {fileID: 3319286}
   - 23: {fileID: 2312288}
-  - 95: {fileID: 9556584}
   - 54: {fileID: 5424826}
   - 65: {fileID: 6578476}
+  - 114: {fileID: 11471492}
+  - 114: {fileID: 11423446}
   m_Layer: 0
   m_Name: bucket_a
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131642}
   m_LocalRotation: {x: 0.00000001545431, y: -0.70710677, z: 0.000000015454308, w: 0.7071068}
-  m_LocalPosition: {x: -11.499219, y: -8.024912e-16, z: 36.140987}
+  m_LocalPosition: {x: -33.024063, y: -65.224396, z: -84.367165}
   m_LocalScale: {x: 46.78505, y: 46.78503, z: 46.78503}
   m_Children: []
   m_Father: {fileID: 0}
@@ -92,23 +93,58 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3398301, y: 0.30639452, z: 0.32160538}
   m_Center: {x: -0.0003517419, y: 0.15645704, z: -0.0039188787}
---- !u!95 &9556584
-Animator:
-  serializedVersion: 3
+--- !u!114 &11423446
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131642}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e8de45ec322f8784b871690da99da871, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 1
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &11471492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 148
+    i1: 175
+    i2: 104
+    i3: 219
+    i4: 111
+    i5: 133
+    i6: 212
+    i7: 215
+    i8: 219
+    i9: 145
+    i10: 146
+    i11: 127
+    i12: 131
+    i13: 171
+    i14: 177
+    i15: 189
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
