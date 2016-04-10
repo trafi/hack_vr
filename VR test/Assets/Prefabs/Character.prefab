@@ -2534,7 +2534,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 167614}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: c875d2d85605699469e14fc0b88a518e, type: 2}
   m_SubsetIndices: 
