@@ -128,7 +128,6 @@ public class AutoGod : NetworkBehaviour {
 		var o = Objects[index];
 		o.tag = DeadlyTag;
 		nextObject = Instantiate (o);
-		NetworkServer.Spawn (nextObject);
 
 		nextObject.transform.position = Thrower.transform.position;
 		nextObject.GetComponent<Rigidbody> ().isKinematic = true;
@@ -138,6 +137,8 @@ public class AutoGod : NetworkBehaviour {
 		var smallObjScale = ThrowableObjectSize / (size > 0 ? size : 1);
 		nextObjectSmallScale = nextObject.transform.localScale * smallObjScale;
 		nextObject.transform.localScale = Vector3.zero;
+
+		NetworkServer.Spawn (nextObject);
 	}
 
 	void ThrowNextObject() {
