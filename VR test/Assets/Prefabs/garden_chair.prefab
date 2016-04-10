@@ -12,6 +12,8 @@ GameObject:
   - 23: {fileID: 2330370}
   - 54: {fileID: 5411580}
   - 65: {fileID: 6531620}
+  - 114: {fileID: 11486474}
+  - 114: {fileID: 11483210}
   m_Layer: 0
   m_Name: garden_chair
   m_TagString: Deadly
@@ -91,6 +93,58 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.018168835, y: 0.011708873, z: 0.00805916}
   m_Center: {x: 0.0000000018626451, y: 0.0058999998, z: 0}
+--- !u!114 &11483210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 1
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &11486474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 223
+    i1: 105
+    i2: 251
+    i3: 116
+    i4: 146
+    i5: 120
+    i6: 196
+    i7: 107
+    i8: 217
+    i9: 234
+    i10: 6
+    i11: 17
+    i12: 163
+    i13: 68
+    i14: 226
+    i15: 32
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
