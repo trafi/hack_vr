@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 446810}
   - 114: {fileID: 11426400}
   - 114: {fileID: 11441414}
+  - 114: {fileID: 11423110}
   m_Layer: 0
   m_Name: Hand of God
   m_TagString: God
@@ -29,8 +30,6 @@ GameObject:
   - 124: {fileID: 12440338}
   - 92: {fileID: 9266892}
   - 81: {fileID: 8121718}
-  - 114: {fileID: 11495014}
-  - 114: {fileID: 11414682}
   m_Layer: 0
   m_Name: Camera
   m_TagString: GodCamera
@@ -139,38 +138,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177718}
   m_Enabled: 1
---- !u!114 &11414682
+--- !u!114 &11423110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177718}
+  m_GameObject: {fileID: 157594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Script: {fileID: 11500000, guid: a8efcb97f15e34c41adee33791d0b0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 198
-    i1: 10
-    i2: 101
-    i3: 118
-    i4: 181
-    i5: 38
-    i6: 52
-    i7: 237
-    i8: 185
-    i9: 130
-    i10: 143
-    i11: 41
-    i12: 210
-    i13: 47
-    i14: 148
-    i15: 118
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &11426400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,26 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c291a703ee55459783f16a5e6b96230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11495014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
 --- !u!124 &12440338
 Behaviour:
   m_ObjectHideFlags: 1

@@ -37,7 +37,6 @@ public class AutoGod : NetworkBehaviour {
 	public float ThrowForce = 300;
 	public float ThrowableObjectSize = 3; 
 	public GameObject Target;
-	private GameObject Camera;
 
 	public float TimeForBounce = 10.0f;
 	public float DeathDepth = -20.0f;
@@ -69,7 +68,6 @@ public class AutoGod : NetworkBehaviour {
 		if (null == Thrower) {
 			return;
 		}
-		Camera = GameObject.FindGameObjectWithTag (GodCameraTag);
 
 		throwerTimePassed += Time.deltaTime;
 		if (nextObject == null) {
@@ -147,8 +145,8 @@ public class AutoGod : NetworkBehaviour {
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		rb.angularVelocity = new Vector3 (Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f));
-		if (Camera != null) {
-			Quaternion headRotation = Camera.transform.rotation;
+		if (Thrower != null) {
+			Quaternion headRotation = Thrower.transform.rotation;
 			var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			if(moveDirection == Vector3.zero)
 			{
