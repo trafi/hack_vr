@@ -20,7 +20,7 @@ public class SpectatorMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(null != network && !network.isLocalPlayer()) {
+		if(null != network && !network.isLocalPlayer) {
 			return;
 		}
 

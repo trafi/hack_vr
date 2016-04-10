@@ -11,10 +11,6 @@ public class NetworkCharacterBehaviour : NetworkBehaviour {
 		camera.SetActive (true);
 	}
 
-	public bool isLocalPlayer() {
-		return base.isLocalPlayer;
-	}
-
 	// Use this for initialization
 	void Start () {
 	}

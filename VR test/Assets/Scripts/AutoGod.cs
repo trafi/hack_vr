@@ -59,6 +59,9 @@ public class AutoGod : MonoBehaviour {
 
 	void Start () {
 		network = GetComponent<NetworkCharacterBehaviour>();
+		if (null != network && !network.isLocalPlayer) {
+			return;
+		}
 		throwerTimePassed = 0.0f;
 		TakeNextObject ();
 
@@ -68,7 +71,7 @@ public class AutoGod : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if(null != network && !network.isLocalPlayer()) {
+		if(null != network && !network.isLocalPlayer) {
 			return;
 		}
 
