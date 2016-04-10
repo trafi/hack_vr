@@ -27,7 +27,6 @@ public class AutoGod : NetworkBehaviour {
 
 	public string DeadlyTag = "Deadly";
 	private string GodTag = "God";
-	private string GodCameraTag = "GodCamera";
 
 	public GameObject Thrower;
 	public GameObject[] Objects;

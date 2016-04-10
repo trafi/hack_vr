@@ -18,7 +18,7 @@ public class PickupController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision " + other.gameObject.name + " @ " + transform.position);
+//        Debug.Log("collision " + other.gameObject.name + " @ " + transform.position);
         if (other.gameObject.tag == "Pickup")
         {
             Destroy(other.gameObject);
