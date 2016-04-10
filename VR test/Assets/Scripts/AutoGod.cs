@@ -26,16 +26,18 @@ class SinkingObject {
 public class AutoGod : NetworkBehaviour {
 
 	public string DeadlyTag = "Deadly";
+	private string GodTag = "God";
+	private string GodCameraTag = "GodCamera";
 
-	public GameObject[] Objects;
 	public GameObject Thrower;
+	public GameObject[] Objects;
 	public float TimeBetweenThrows = 2;
 	public float TimeToAppear = 2;
 	public float TimeToGetBig = 2;
 	public float ThrowForce = 300;
 	public float ThrowableObjectSize = 3; 
 	public GameObject Target;
-	public GameObject Camera;
+	private GameObject Camera;
 
 	public float TimeForBounce = 10.0f;
 	public float DeathDepth = -20.0f;
@@ -62,6 +64,12 @@ public class AutoGod : NetworkBehaviour {
 
 	void Update () {
 		Debug.Log ("Update local " + isLocalPlayer + " server " + isServer);
+
+		Thrower = GameObject.FindGameObjectWithTag (GodTag);
+		if (null == Thrower) {
+			return;
+		}
+		Camera = GameObject.FindGameObjectWithTag (GodCameraTag);
 
 		throwerTimePassed += Time.deltaTime;
 		if (nextObject == null) {
@@ -140,7 +148,7 @@ public class AutoGod : NetworkBehaviour {
 		rb.isKinematic = false;
 		rb.angularVelocity = new Vector3 (Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f), Random.Range(0.0f, 0.8f));
 		if (Camera != null) {
-			Quaternion headRotation = InputTracking.GetLocalRotation(VRNode.Head);
+			Quaternion headRotation = Camera.transform.rotation;
 			var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			if(moveDirection == Vector3.zero)
 			{

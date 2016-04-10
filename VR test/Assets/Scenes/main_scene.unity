@@ -337,7 +337,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466692, guid: 03e00a084e15dbc439e76e1fe5df8c07, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03e00a084e15dbc439e76e1fe5df8c07, type: 2}
@@ -621,16 +621,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeadlyTag: Deadly
+  Thrower: {fileID: 825018974}
   Objects:
   - {fileID: 123082, guid: 763267925726644eb887426197f1235b, type: 2}
-  Thrower: {fileID: 825018974}
   TimeBetweenThrows: 3
   TimeToAppear: 2
   TimeToGetBig: 5
   ThrowForce: 15
   ThrowableObjectSize: 0.5
   Target: {fileID: 137374, guid: baf8a0209b6d2424a9788d79db0c0620, type: 2}
-  Camera: {fileID: 1658459836}
   TimeForBounce: 15
   DeathDepth: -20
   SinkSpeed: 0.1
@@ -687,11 +686,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447440, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
       propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11452442, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
-      propertyPath: hostIsHuman
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a71c4639d94b2428ba4177d7d6afec1d, type: 2}
@@ -850,10 +845,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20ee4b3ed1eb24a969b74820aa67877a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1658459836 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 177718, guid: c60a6576b52634edb9828f29d22f9476, type: 2}
-  m_PrefabInternal: {fileID: 615280300}
 --- !u!4 &1762091295 stripped
 Transform:
   m_PrefabParentObject: {fileID: 460022, guid: 96173b0280ed842a4b346a6f3e9c3917, type: 2}
