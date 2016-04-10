@@ -24,6 +24,10 @@ public class PickupController : MonoBehaviour {
             Destroy(other.gameObject);
             pickupIndicators[collectableCounter].GetComponent<Renderer>().enabled = true;
             collectableCounter++;
+            if(collectableCounter == 10)
+            {
+                GameObject.FindGameObjectWithTag("Win").GetComponent<Renderer>().enabled = true;
+            }
         }
         if(other.gameObject.tag == "Bounds")
         {

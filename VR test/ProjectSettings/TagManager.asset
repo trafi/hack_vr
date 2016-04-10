@@ -9,6 +9,7 @@ TagManager:
   - Bounds
   - God
   - GodCamera
+  - Win
   layers:
   - Default
   - TransparentFX
