@@ -139,7 +139,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 410620}
   - 54: {fileID: 5478366}
-  - 65: {fileID: 6509234}
+  - 65: {fileID: 6543140}
+  - 114: {fileID: 11477146}
+  - 114: {fileID: 11444974}
   m_Layer: 0
   m_Name: Mini_Truck
   m_TagString: Untagged
@@ -242,8 +244,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166254}
   m_LocalRotation: {x: 0.07451756, y: 0.7014003, z: 0.025205763, w: 0.70841336}
-  m_LocalPosition: {x: 27, y: 28.8, z: -1.8}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -2.4211807, y: -50.39089, z: -217.21605}
+  m_LocalScale: {x: 18.067045, y: 18.06704, z: 18.06704}
   m_Children:
   - {fileID: 425608}
   - {fileID: 417424}
@@ -555,7 +557,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6509234
+--- !u!65 &6543140
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -565,8 +567,60 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.9992347, y: 3.533982, z: 6.55203}
+  m_Center: {x: 0.09041811, y: 1.8335674, z: 0.07037492}
+--- !u!114 &11444974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 1
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &11477146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 52
+    i1: 10
+    i2: 181
+    i3: 64
+    i4: 177
+    i5: 248
+    i6: 212
+    i7: 174
+    i8: 56
+    i9: 112
+    i10: 153
+    i11: 155
+    i12: 175
+    i13: 177
+    i14: 107
+    i15: 76
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
