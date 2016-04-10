@@ -9,7 +9,7 @@ public class PickupSpawner : MonoBehaviour {
 
     private Vector3 getPos()
     {
-        return new Vector3(Random.Range(-100, 100), 10, Random.Range(-100, 100));
+        return new Vector3(Random.Range(-100, 100), 15, Random.Range(-100, 100));
     }
 
 	// Use this for initialization
